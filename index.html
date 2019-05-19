@@ -10,10 +10,32 @@
 
 <body>
     <div class="wrapper">
+
         <div class="game-container">
+            <div class="dice">
+                <img src="dice-1.png" alt="dice" id="dice">
+                <button class="roll btns">Roll</button>
+                <button class="hold btns">Hold</button>
+            </div>
             <div class="btn-new-game"><button class="btn">NEW GAME</button></div>
-            <div class="player-container1 player-container"></div>
-            <div class="player-container2 player-container"></div>
+            <div class="player-container1 player-container">
+                <span class="style-result">Total Score:</span>
+                <span class="style-result result-1">0</span>
+                <div class="curr">
+                    <span>Current Score:</span>
+                    <span class="current-1">0</span>
+                </div>
+                <h2 class="player">Player 1</h2>
+            </div>
+            <div class="player-container2 player-container">
+                <span class="style-result">Total Score:</span>
+                <span class="style-result result-2">0</span>
+                <div class="curr">
+                    <span>Current Score:</span>
+                    <span class="current-2">0</span>
+                </div>
+                <h2 class="player">Player 2</h2>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>

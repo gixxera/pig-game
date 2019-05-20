@@ -2,7 +2,7 @@ let player = 1;
 let currentScore = 0;
 let totalScore = [0, 0];
 
-document.querySelector('.roll').addEventListener('click', () => {
+const rollGame = () => {
     let randomDice = Math.floor(Math.random() * 6) + 1;
     let dice = document.querySelector('#dice');
     dice.style.display = 'block';
@@ -15,7 +15,9 @@ document.querySelector('.roll').addEventListener('click', () => {
     } else {
         playerTurn();
     }
-})
+}
+
+document.querySelector('.roll').addEventListener('click', rollGame)
 
 let current1 = document.querySelector('.current-1');
 let current2 = document.querySelector('.current-2');
@@ -29,9 +31,13 @@ const playerTurn = () => {
     currentScore = 0;
     current1.textContent = '0';
     current2.textContent = '0';
+
+    player1.classList.toggle('toggle');
+    player2.classList.toggle('toggle');
+
 }
 
-document.querySelector('.btn-new-game').addEventListener('click', () => {
+const newGame = () => {
     currentScore = 0;
     totalScore = [0, 0];
     result1.textContent = totalScore[0];
@@ -41,10 +47,11 @@ document.querySelector('.btn-new-game').addEventListener('click', () => {
     document.querySelector('.dice').style.display = 'block';
     player1.textContent = 'PLAYER 1';
     player2.textContent = 'PLAYER 2';
+}
 
-})
+document.querySelector('.btn-new-game').addEventListener('click', newGame);
 
-document.querySelector('.hold').addEventListener('click', () => {
+const holdScore = () => {
     if (player === 1) {
         totalScore[0] += currentScore;
         result1.textContent = totalScore[0];
@@ -68,7 +75,11 @@ document.querySelector('.hold').addEventListener('click', () => {
         }
         player = 1;
     }
-})
+    player1.classList.toggle('toggle');
+    player2.classList.toggle('toggle');
+}
+
+document.querySelector('.hold').addEventListener('click', holdScore);
 
 
 
